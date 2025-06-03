@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Test Results</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+      <header>
+        <h1>FAKESTORE API TEST</h1>
+        <button id="runTests" class="primary-button">RUN TESTS</button>
+      </header>
+
+      <div class="status-panel">
+        <div class="status-item">
+          <h3>API STATUS</h3>
+          <div id="apiStatus" class="status pending">PENDING</div>
+        </div>
+        <div class="status-item">
+          <h3>TOTAL PRODUCTS</h3>
+          <div id="totalProducts">-</div>
+        </div>
+        <div class="status-item">
+          <h3>VALID PRODUCTS</h3>
+          <div id="validProducts">-</div>
+        </div>
+        <div class="status-item">
+          <h3>PRODUCTS WITH ERRORS</h3>
+          <div id="errorProducts">-</div>
+        </div>
+      </div>
+
+      <div class="test-results">
+        <div class="test-section">
+          <h2>TITLE VALIDATION</h2>
+          <div id="titleValidation" class="validation-results">
+            <div class="status pending">NOT TESTED</div>
+          </div>
+        </div>
+
+        <div class="test-section">
+          <h2>PRICE VALIDATION</h2>
+          <div id="priceValidation" class="validation-results">
+            <div class="status pending">NOT TESTED</div>
+          </div>
+        </div>
+
+        <div class="test-section">
+          <h2>RATING VALIDATION</h2>
+          <div id="ratingValidation" class="validation-results">
+            <div class="status pending">NOT TESTED</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-details">
+        <h2>DETAILED ERROR REPORT</h2>
+        <div id="errorDetails" class="error-list">NO ERRORS TO DISPLAY</div>
+      </div>
+    </div>
+
+    <script>
+      function createStars() {
+        const starsContainer = document.getElementById("stars");
+        const numberOfStars = 150;
+
+        for (let i = 0; i < numberOfStars; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.top = `${Math.random() * 100}%`;
+          star.style.animationDelay = `${Math.random() * 2}s`;
+          starsContainer.appendChild(star);
+        }
+      }
+
+      createStars();
+    </script>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

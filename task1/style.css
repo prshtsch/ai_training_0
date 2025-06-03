@@ -1,0 +1,237 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    --neon-blue: #00fff9;
+    --neon-purple: #bc13fe;
+    --space-black: #0a0a0a;
+    --neon-green: #39ff14;
+    --star-color: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-shadow: 0 0 5px var(--neon-blue);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: var(--space-black);
+    color: var(--neon-blue);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    background-color: var(--star-color);
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    animation: twinkle 1s infinite;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: var(--neon-purple);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--neon-purple),
+        0 0 20px var(--neon-purple);
+    animation: float 6s ease-in-out infinite;
+}
+
+.input-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 255, 249, 0.2);
+}
+
+input {
+    background: transparent;
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 1rem;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    text-shadow: var(--text-shadow);
+}
+
+input::placeholder {
+    color: rgba(0, 255, 249, 0.5);
+}
+
+button {
+    background: transparent;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 1rem 2rem;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-shadow: 0 0 5px var(--neon-green);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+}
+
+button:hover {
+    background: var(--neon-green);
+    color: var(--space-black);
+    transform: scale(1.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 2rem;
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--neon-blue);
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 255, 249, 0.2);
+}
+
+th {
+    background-color: rgba(188, 19, 254, 0.2);
+    color: var(--neon-purple);
+    text-shadow: 0 0 5px var(--neon-purple);
+}
+
+tr:hover {
+    background: rgba(0, 255, 249, 0.1);
+}
+
+.results {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--neon-purple);
+    box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);
+    animation: float 6s ease-in-out infinite;
+}
+
+.results h2 {
+    color: var(--neon-purple);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 5px var(--neon-purple);
+}
+
+.results p {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.results span {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+#topExpenses {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+#topExpenses li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(0, 255, 249, 0.2);
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-btn {
+    background: transparent;
+    border: 2px solid var(--neon-purple);
+    color: var(--neon-purple);
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+}
+
+.delete-btn:hover {
+    background: var(--neon-purple);
+    color: var(--space-black);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .input-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    th,
+    td {
+        padding: 0.8rem;
+        font-size: 0.7rem;
+    }
+}

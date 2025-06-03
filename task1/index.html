@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stars" id="stars"></div>
+    <div class="container">
+      <h1>EXPENSE TRACKER</h1>
+
+      <div class="input-section">
+        <input type="text" id="category" placeholder="CATEGORY" required />
+        <input type="number" id="amount" placeholder="AMOUNT ($)" required />
+        <button onclick="addExpense()">ADD</button>
+      </div>
+
+      <table id="expenseTable">
+        <thead>
+          <tr>
+            <th>CATEGORY</th>
+            <th>AMOUNT ($)</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody id="expenseBody"></tbody>
+      </table>
+
+      <div class="table-actions">
+        <button class="delete-btn" onclick="deleteAllExpenses()">
+          DELETE ALL
+        </button>
+        <button onclick="calculateExpenses()">CALCULATE</button>
+      </div>
+
+      <div class="results" id="results">
+        <h2>RESULTS</h2>
+        <p>TOTAL EXPENSES: <span id="totalExpenses">$0</span></p>
+        <p>DAILY AVERAGE: <span id="averageExpense">$0</span></p>
+        <p>TOP 3 EXPENSES:</p>
+        <ul id="topExpenses"></ul>
+      </div>
+    </div>
+
+    <script>
+      // Create stars background
+      function createStars() {
+        const starsContainer = document.getElementById("stars");
+        const numberOfStars = 150;
+
+        for (let i = 0; i < numberOfStars; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.top = `${Math.random() * 100}%`;
+          star.style.animationDelay = `${Math.random() * 2}s`;
+          starsContainer.appendChild(star);
+        }
+      }
+
+      createStars();
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
